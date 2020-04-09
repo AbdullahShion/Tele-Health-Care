@@ -12,3 +12,9 @@
     font-size: 14px;
     font-weight: 200;
 }
+.my-modal{
+    position: fixed;
+    width: 40%;
+    height: 400px;
+    background: #000;
+}

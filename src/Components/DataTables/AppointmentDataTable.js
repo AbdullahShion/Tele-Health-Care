@@ -1,48 +1,14 @@
-import React, {useEffect,useState} from 'react';
+import React from 'react';
+import { useContext } from 'react';
+import { DataContext } from '../../App';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPencilAlt, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
-import './DataTable.css';
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 
-const DataTable = (props) => {
-    const [allBookedAppointments , setAllBookedAppointments] = useState([]);
-    console.log(allBookedAppointments);
-    useEffect(() => {
-        fetch("http://localhost:3200/bookedAppointments")
-       .then(res => res.json())
-       .then(data => setAllBookedAppointments(data))
-   }, [allBookedAppointments.length])
-
-   const total = allBookedAppointments.length;
-   const pending =  allBookedAppointments.reduce((accu , curr) => {
-       if(curr.status === 0){
-            accu += 1;
-       }
-       return accu;
-
-   },0) 
-   const date = new Date();
-   const formatedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-   const todays =  allBookedAppointments.reduce((accu , curr) => {
-    if(curr.date === formatedDate){
-        accu += 1;
-    }
-    return accu;
-},0) 
-   console.log(total, pending , todays)
+const AppointmentDataTable = () => {
+    const ContextData = useContext(DataContext);
+    let srNo = 1;
     return (
-        <div className="bg-white rounded shadow-sm p-3">
-        <div className="py-3 d-flex align-items-center justify-content-between">
-            <h6 className="text-primary"> {props.tableName} </h6>
-            <div className="selector">
-                <FontAwesomeIcon className="icon"icon={faCalendarAlt}/> 
-                <select className="p-1 rounded" name="" id="">
-                    <option value=""> Weak</option>
-                </select>
-            </div>
-            
-        </div>
-
         <table className="table table-borderless">
             <thead>
                 <tr className="text-center">
@@ -57,10 +23,10 @@ const DataTable = (props) => {
             </thead>
             <tbody>
                 {
-                  allBookedAppointments.map(ap => 
+                  ContextData.allBookedAppointments.map(ap => 
 
                         <tr>
-                        <th scope="row">1</th>
+                        <td>{srNo++}</td>
                         <td>{ap.date}</td>
                         <td>{ap.pataintInfo.name}</td>
                         <td>3pm</td>
@@ -86,9 +52,9 @@ const DataTable = (props) => {
             
                 
             </tbody>
-            </table>
-        </div>
+        </table>
+        
     );
 };
 
-export default DataTable;
+export default AppointmentDataTable;

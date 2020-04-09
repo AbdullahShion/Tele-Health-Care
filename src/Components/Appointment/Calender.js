@@ -1,14 +1,13 @@
-import React, { useState , useContext } from "react";
+import React, {useContext} from "react";
 import Calendar  from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './Calender.css'
-import { CalenderContext } from "../../Pages/Appointment";
+import { CalenderContext } from "../../App";
 
 const ReactCalender = () => {
   const calenderData = useContext(CalenderContext)
   const onChange = date => calenderData.setDate(date)
 
-  console.log(calenderData);
   return (
     <div className="col-md-6 align-self-end pr-5 ">
         <div className="calender-area">
