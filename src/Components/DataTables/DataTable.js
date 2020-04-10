@@ -1,8 +1,9 @@
 import React, {useContext} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPencilAlt, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import './DataTable.css';
 import { DataContext } from '../../App';
+import Preloader from '../Preloader/Preloader';
 
 const DataTable = (props) => {
 
@@ -21,10 +22,14 @@ const DataTable = (props) => {
             
         </div>
 
+
         {
             props.children
         }
-        
+        {
+            ContextData.preLoaderVisibility &&
+            <Preloader/>
+        }        
         </div>
     );
 };

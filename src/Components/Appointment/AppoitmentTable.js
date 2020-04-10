@@ -6,6 +6,7 @@ import Modal from 'react-modal';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import Preloader from '../Preloader/Preloader';
 
 Modal.setAppElement('#root')
 
@@ -15,7 +16,8 @@ const AppointmentTable = () => {
     const [selectAppointment, setSelectAppointment] = useState(null);
     const [modalIsOpen,setModalIsOpen] = useState(false);
     const [isBooked, setIsBooked] = useState(false);
-    
+    console.log(contextData_2.preLoaderVisibility)
+
     const date = `${contextData.date.getDate()}-${contextData.date.getMonth() +1}-${contextData.date.getFullYear()}`;
 
     const  makeBooking = (patientInfo) => {
@@ -53,9 +55,14 @@ const AppointmentTable = () => {
         }
     }
     return (
+        
         <div className="appointments container py-5 mt-5">
             <h3 className="text-primary text-center my-5">Available Appointments on {contextData.date.toLocaleString('default', { month: 'long' })} {contextData.date.getDate()}, {contextData.date.getFullYear()}</h3>
             <div className="row">
+                {
+                    contextData_2.preLoaderVisibility &&
+                    <Preloader/>
+                }
                 {
                     contextData_2.allAppointments.map(SingleAp => <AppointmentCard data={SingleAp} modalController={modalController} />)
                 }

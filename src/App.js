@@ -19,11 +19,15 @@ function App() {
   const [allBookedAppointments , setAllBookedAppointments] = useState([]);
   const [allPatients , setAllPatients] = useState([]);
   const [date, setDate] = useState(new Date());
+  const [preLoaderVisibility, setPreLoaderVisibility] = useState(true);
 
   useEffect(() => {
     fetch("https://doctors-portal-backend.herokuapp.com/appointments")
     .then(res => res.json())
-      .then(data => setAllAppointments(data))
+    .then(data => {
+      setAllAppointments(data);
+      setPreLoaderVisibility(false);
+    })
   }, [allAppointments.length])
 
   useEffect(() => {
@@ -53,7 +57,7 @@ function App() {
 
   }, [allBookedAppointments.length])
 
-  const contextData = {allAppointments, setAllAppointments, allBookedAppointments,setAllBookedAppointments , allPatients}
+  const contextData = {allAppointments, setAllAppointments, allBookedAppointments,setAllBookedAppointments , allPatients , preLoaderVisibility}
   const calenderContextValue ={date, setDate};
 
   return (

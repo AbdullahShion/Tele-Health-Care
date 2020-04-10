@@ -68,7 +68,7 @@ const DayAppointmentDataTable = () => {
 
                             <tr>
                             <td>{ap.patientInfo.name}</td>
-                            <td>3pm</td>
+                            <td>{ap.date}</td>
                             <td className="text-center">
                                 <select
                                 onClick={() => setSelectAppointment(ap)} onChange={e => handleVisitingStatusChange(e.target.value)} 
