@@ -3,6 +3,10 @@ import { useContext, useState } from 'react';
 import { DataContext } from '../../App';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import Modal from 'react-modal';
+import { useForm } from 'react-hook-form';
+
+
 import PrescriptionModal from '../Dashboard/PrescriptionModal';
 
 
@@ -10,11 +14,48 @@ const AppointmentDataTable = () => {
     const ContextData = useContext(DataContext);
     const [selectAppointment, setSelectAppointment] = useState(null);
     const [modalIsOpen,setModalIsOpen] = useState(false);
+    const [editModalIsOpen, setEditModalIsOpen] = useState(false);
 
     const openPrescriptionModal = (apId) => {
         setModalIsOpen(true);
         const selectedAp = ContextData.allBookedAppointments.find(ap => ap._id === apId)
         setSelectAppointment(selectedAp);
+    }
+
+    const openDataEditModal = (apId) => {
+        setEditModalIsOpen(true);
+        const selectedAp = ContextData.allBookedAppointments.find(ap => ap._id === apId)
+        setSelectAppointment(selectedAp);
+    }
+
+    const { register, handleSubmit, watch, errors } = useForm()
+
+    const onSubmit = data => {
+              
+        // Updating Data to DataContext 
+        const newDataArray = Array.from(ContextData.allBookedAppointments);
+        const selectedIndex = newDataArray.indexOf(selectAppointment);
+
+        const SelectedApForModify = {...selectAppointment};
+
+        SelectedApForModify.date = data.date;
+        SelectedApForModify.time = data.time;
+        setSelectAppointment(SelectedApForModify);
+        newDataArray.splice(selectedIndex,1, SelectedApForModify);
+        ContextData.setAllBookedAppointments(newDataArray);
+
+        // Storing Data to Database
+
+        fetch("https://doctors-portal-backend.herokuapp.com/updateAppointmentTime",{
+            method : "POST",
+            headers : {
+                "Content-type" : "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        setEditModalIsOpen(false)
     }
 
     let srNo = 1;
@@ -66,7 +107,7 @@ const AppointmentDataTable = () => {
                         <tr>
                         <td>{srNo++}</td>
                         <td>{ap.date}</td>
-                        <td>3pm</td>
+                        <td>{ap.time}</td>
                         <td>{ap.patientInfo.name}</td>
                         <td>{ap.patientInfo.phone}</td>
 
@@ -90,8 +131,9 @@ const AppointmentDataTable = () => {
                                 <option selected={ap.status == "Approved"} className="bg-white text-secondary">Approved</option>
                                 <option selected={ap.status == "Rejected"} className="bg-white text-secondary">Rejected</option>
                             </select>
+
                            
-                            <button className="btn ml-1 btn-warning text-white"> <FontAwesomeIcon icon={faPencilAlt}/> </button>
+                            <button onClick={() => openDataEditModal(ap._id)} className="btn ml-1 btn-warning text-white"> <FontAwesomeIcon icon={faPencilAlt}/> </button>
                         </td>
                     </tr>
                     )
@@ -99,6 +141,53 @@ const AppointmentDataTable = () => {
             
             </tbody>
         </table>
+
+        <Modal  isOpen={editModalIsOpen}
+             onRequestClose={() => setEditModalIsOpen(false)} 
+             style={{
+                 overlay:{
+                     backgroundColor:"rgba(130,125,125,0.75)"
+                 },
+                 content : {
+                    top                   : '50%',
+                    left                  : '50%',
+                    right                 : 'auto',
+                    bottom                : 'auto',
+                    marginRight           : '-50%',
+                    width                 :  '40%',
+                    transform             : 'translate(-50%, -50%)'
+                  }
+             }}
+            >
+            
+                {selectAppointment &&
+                <form className="px-5 my-3" onSubmit={handleSubmit(onSubmit)}>
+                    <h5 className="text-primary text-center mb-5">{selectAppointment.patientInfo.name}'s Appointment</h5>
+                    <div className="form-group row">
+                        <label htmlFor="" className="col-4">Date</label>
+                        <input type="text" defaultValue={selectAppointment.date} ref={register({ required: true })} name="date" className="form-control col-8"/>
+                        <div className="col-12">
+                             {errors.date && <span className="text-danger">Appointment date must not empty ! <br/></span>}
+                        </div>
+                    </div>
+                    <div className="form-group row">
+                        <label htmlFor="" className="col-4">Time</label>
+                        <input type="text" defaultValue={selectAppointment.time} ref={register({ required: true })} name="time" className="form-control col-8"/>
+                        <div className="col-12">
+                             {errors.time && <span className="text-danger">Appointment time must not empty ! <br/></span>}
+                        </div>
+                    </div>
+                    <div className="form-group text-right">
+                        <input type="hidden"  value={selectAppointment._id} ref={register({ required: true })} name="id"/>
+                        <button type="submit" className="btn btn-primary">Update</button>
+                    </div>
+                </form>
+                }
+            
+        </Modal>
+
+
+
         <PrescriptionModal 
         modalIsOpen={modalIsOpen}
         setModalIsOpen={setModalIsOpen}

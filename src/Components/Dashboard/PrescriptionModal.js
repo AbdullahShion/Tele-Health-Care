@@ -9,9 +9,8 @@ const PrescriptionModal = (props) => {
     
    const { register, handleSubmit, watch, errors } = useForm()
 
-   const onSubmit = newPrescript => {
+   const onSubmit = (newPrescript , e) => {
        
-      
         // Updating Data to DataContext 
         const newDataArray = Array.from(ContextData.allBookedAppointments);
         const selectedIndex = newDataArray.indexOf(props.selectAppointment);
@@ -30,7 +29,8 @@ const PrescriptionModal = (props) => {
         // Storing Data To Database
 
        const data = {id : props.selectAppointment._id, prescription : newPrescription }
-       console.log(data);
+       e.target.reset();
+
        fetch("https://doctors-portal-backend.herokuapp.com/updatePrescription",{
             method : "POST",
             headers : {
@@ -39,8 +39,12 @@ const PrescriptionModal = (props) => {
             body: JSON.stringify(data)
         })
         .then(res =>res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data)
+        })
         .catch(err => console.log(err))
+        
+
    }
     return (
 

@@ -7,8 +7,6 @@ import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
-
-
 Modal.setAppElement('#root')
 
 const AppointmentTable = () => {
@@ -17,14 +15,14 @@ const AppointmentTable = () => {
     const [selectAppointment, setSelectAppointment] = useState(null);
     const [modalIsOpen,setModalIsOpen] = useState(false);
     const [isBooked, setIsBooked] = useState(false);
-
     
     const date = `${contextData.date.getDate()}-${contextData.date.getMonth() +1}-${contextData.date.getFullYear()}`;
 
     const  makeBooking = (patientInfo) => {
         setIsBooked(true);
         const apId = selectAppointment.id;
-        const dataToStore = {apId , date , patientInfo ,status:"Pending" }
+        const time = selectAppointment.visitingHour;
+        const dataToStore = {apId , date , time , patientInfo ,status:"Pending" }
         fetch("https://doctors-portal-backend.herokuapp.com/makeBooking",{
             method : "POST",
             headers : {
