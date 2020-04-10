@@ -12,6 +12,9 @@ html, body{
 a:hover{
   text-decoration: none;
 }
+.navbar-expand-sm .navbar-nav .nav-link{
+  padding-left: 1.4rem;
+}
 /* Themeing */
 .btn-primary{
   background-image: linear-gradient(75deg, #19D3AE,#0fcfec) !important;
@@ -64,4 +67,26 @@ p{
 .login-page .form-control:focus{
   box-shadow: none !important;
   border-bottom: 1px solid #1cc7c1;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(251, 251, 251) !important;
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #efefef  !important;;
+  border-radius: 5px !important;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(176, 178, 180)  !important;;
 }

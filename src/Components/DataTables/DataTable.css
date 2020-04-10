@@ -15,3 +15,9 @@
     color: lightslategray;
 
 }
+
+.add-prescription .form-control,
+.add-prescription .btn
+{
+    border-radius: 0 !important;
+}

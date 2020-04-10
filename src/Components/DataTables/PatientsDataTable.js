@@ -11,6 +11,9 @@ const PatientsDataTable = () => {
                 <tr>
                 <th className="text-secondary text-left" scope="col">Sr No</th>
                 <th className="text-secondary" scope="col">Name</th>
+                <th className="text-secondary" scope="col">Gender</th>
+                <th className="text-secondary" scope="col">Age</th>
+                <th className="text-secondary" scope="col">Weight</th>
                 <th className="text-secondary" scope="col">Phone</th>
                 <th className="text-secondary" scope="col">Email</th>
                 </tr>
@@ -18,13 +21,16 @@ const PatientsDataTable = () => {
             <tbody>
                 {
                   ContextData.allPatients.map(patient => 
-
-                        <tr>
+                        
+                    <tr>
                         <td>{srNo++}</td>
                         <td>{patient.name}</td>
+                        <td>{patient.gender}</td>
+                        <td>{patient.age}</td>
+                        <td>{patient.weight}KG</td>
                         <td>{patient.phone}</td>
                         <td>{patient.email}</td>
-                        </tr>
+                    </tr>
                     )
                 }
             

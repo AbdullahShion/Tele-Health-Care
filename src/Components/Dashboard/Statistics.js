@@ -7,14 +7,14 @@ const Statistics = () => {
     const ContextData = useContext(DataContext);
     const total = ContextData.allBookedAppointments.length;
     const pending =  ContextData.allBookedAppointments.reduce((accu , curr) => {
-        if(curr.status === 0){
+        if(curr.status === "Pending"){
                 accu += 1;
         }
         return accu;
 
     },0) 
     const date = new Date();
-    const formatedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+    const formatedDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
     const todays =  ContextData.allBookedAppointments.reduce((accu , curr) => {
         if(curr.date === formatedDate){
             accu += 1;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Sidebar from '../../Components/Dashboard/Sidebar';
-import Calendar from 'react-calendar';
 import DayAppointmentDataTable from '../../Components/DataTables/DayAppointmentDataTable';
+import ReactCalender from '../../Components/Appointment/Calender';
 
 const DashBoardAppointments = () => {
 
@@ -12,7 +12,7 @@ const DashBoardAppointments = () => {
                     <h5 className="mb-5">Appointments</h5>
                     <div className="row">
                         <div className="col-md-6">
-                            <Calendar></Calendar>    
+                            <ReactCalender/>  
                         </div>
                         <div className="col-md-6">
                             <DayAppointmentDataTable/>

@@ -8,7 +8,12 @@ const AppointmentSection = () => {
             <div className="container">
                 
                 <div className="row" style={{height:"100vh"}}>
-                    <ReactCalender/>
+                    <div className="col-md-6  align-self-end">
+                        <div className="calender-area pr-md-5 mr-md-5">
+                            <h3 className="text-uppercase col-12 mb-5">Appointment</h3>
+                            <ReactCalender/>
+                        </div>
+                    </div>
                     <div className="col-md-6 align-self-center">
                         <img className="img-fluid" src={BannerImg} alt=""/>
                     </div>

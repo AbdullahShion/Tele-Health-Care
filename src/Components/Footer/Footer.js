@@ -39,10 +39,10 @@ const Footer = () => {
         <footer className="footer-area clear-both">
             <div className="container pt-5">
                 <div className="row py-5">
-                    <FooterCol menuTitle={"."} menuItems={noNamed}/>
-                    <FooterCol menuTitle="Services" menuItems={services}/>
-                    <FooterCol menuTitle="Oral Health" menuItems={oralHealth}/>
-                    <FooterCol menuTitle="Our Address" menuItems={ourAddress}> 
+                    <FooterCol key={1} menuTitle={"."} menuItems={noNamed}/>
+                    <FooterCol key={2} menuTitle="Services" menuItems={services}/>
+                    <FooterCol key={3} menuTitle="Oral Health" menuItems={oralHealth}/>
+                    <FooterCol key={4} menuTitle="Our Address" menuItems={ourAddress}> 
                         <ul className="social-media list-inline">
                             <li className="list-inline-item"><a href="//facebook.com/dev.shadin"><FontAwesomeIcon className="icon active-icon" icon={faFacebookF} /></a></li>
                             <li className="list-inline-item"><a href="//google.com"><FontAwesomeIcon className="icon" icon={faGooglePlusG} /></a></li>

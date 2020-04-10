@@ -6,9 +6,11 @@
     border: 0 ;
     box-shadow: 0 0 10px #f1eded;
     padding: 5%;
-
+    width: 100%;
 }
-
+.react-calendar__navigation{
+    height: 100px;
+}
 .react-calendar__month-view__weekdays abbr[data-original-title], 
 .react-calendar__month-view__weekdays abbr[title] ,
 .react-calendar__month-view__days__day,

@@ -9,15 +9,13 @@ const ReactCalender = () => {
   const onChange = date => calenderData.setDate(date)
 
   return (
-    <div className="col-md-6 align-self-end pr-5 ">
-        <div className="calender-area">
-            <h3 className="text-uppercase col-12 mb-5">Appointment</h3>
+        <div className="my-calender">
             <Calendar
               onChange={onChange}
               value={calenderData.value}
             />
         </div>
-    </div>
+    
   );
 };
 

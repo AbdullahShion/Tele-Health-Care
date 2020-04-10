@@ -8,6 +8,7 @@ import Login from './Pages/Login';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Patients from './Pages/Dashboard/Patients';
 import DashBoardAppointments from './Pages/Dashboard/Appointments';
+import Prescriptions from './Pages/Dashboard/Prescriptions';
 export const DataContext = createContext();
 export const CalenderContext = createContext()
 
@@ -20,26 +21,29 @@ function App() {
   const [date, setDate] = useState(new Date());
 
   useEffect(() => {
-    fetch("http://localhost:3200/appointments")
+    fetch("https://doctors-portal-backend.herokuapp.com/appointments")
     .then(res => res.json())
       .then(data => setAllAppointments(data))
   }, [allAppointments.length])
 
   useEffect(() => {
-      fetch("http://localhost:3200/bookedAppointments")
+      fetch("https://doctors-portal-backend.herokuapp.com/bookedAppointments")
       .then(res => res.json())
       .then(data => setAllBookedAppointments(data));
       
-      const uniquePatients = []
+      const uniquePatients = [];
       const map = new Map();
       if(allBookedAppointments.length){
         for (const ap of allBookedAppointments) {
-          if(!map.has(ap.pataintInfo.phone)){
-              map.set(ap.pataintInfo.phone, true);    // set any value to Map
+          if(!map.has(ap.patientInfo.phone)){
+              map.set(ap.patientInfo.phone, true);    // set any value to Map
               uniquePatients.push({
-                  name: ap.pataintInfo.name,
-                  phone: ap.pataintInfo.phone,
-                  email : ap.pataintInfo.email
+                  name: ap.patientInfo.name,
+                  phone: ap.patientInfo.phone,
+                  email : ap.patientInfo.email,
+                  gender : ap.patientInfo.gender,
+                  age : ap.patientInfo.age,
+                  weight : ap.patientInfo.weight
               });
           }
          }
@@ -75,6 +79,9 @@ function App() {
           </Route>
           <Route  path="/doctor/appointment">
             <DashBoardAppointments/>
+          </Route>
+          <Route  path="/doctor/prescriptions">
+            <Prescriptions/>
           </Route>
           <Route path="*">
               <NotFound/>
