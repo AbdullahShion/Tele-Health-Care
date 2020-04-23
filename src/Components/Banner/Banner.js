@@ -12,7 +12,7 @@ const Banner = () => {
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the</p>
                         <Link className="btn btn-primary" to="/appointment">Get appointment</Link>
                     </div>
-                    <div className="col-md-6 offset-2">
+                    <div className="col-md-6 d-none d-md-block offset-2">
                         <img className="img-fluid" src={BannerImg} alt=""/>
                     </div>
                 </div>

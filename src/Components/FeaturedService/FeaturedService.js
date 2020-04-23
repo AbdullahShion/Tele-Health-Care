@@ -2,10 +2,10 @@ import React from 'react';
 import featuredImg from '../../images/featured.png'
 const FeaturedService = () => {
     return (
-        <section className="features-service my-5 py-5">
+        <section className="features-service pb-0 pb-md-5 my-5">
             <div className="container mb-5">
-                <div className="row">
-                    <div className="col-md-5">
+                <div className="row mb-5">
+                    <div className="col-md-5 mb-4 m-md-0">
                         <img className="img-fluid" src={featuredImg} alt=""/>
                     </div>
                     <div className="col-md-7 align-self-center">

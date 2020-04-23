@@ -1,21 +1,21 @@
 const testimonials = [
     {
-        quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat voluptatum in eaque voluptatem assumenda est accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo ullam! ',
+        quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
         name : 'Winson Harry',
         from : 'California',
-        img : 'https://imgur.com/G4XXPuV.png'
+        img : 'https://imgur.com/Zt8inGj.png'
     },
     {
-        quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat voluptatum in eaque voluptatem assumenda est accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo ullam! ',
-        name : 'Winson Harry',
+        quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
+        name : 'Henry Gomez',
         from : 'California',
-        img : 'https://imgur.com/Ma7XfV8.png'
+        img : 'https://imgur.com/GLJS9vL.png'
     },
     {
-        quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat voluptatum in eaque voluptatem assumenda est accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo ullam! ',
-        name : 'Winson Harry',
+        quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
+        name : 'Aliza Farari',
         from : 'California',
-        img : 'https://imgur.com/GEngIO2.png'
+        img : 'https://imgur.com/wXJ3Xta.png'
     }
 ]
 

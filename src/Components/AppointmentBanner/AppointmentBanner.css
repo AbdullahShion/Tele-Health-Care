@@ -25,3 +25,9 @@
     bottom: 20%;
     transform: translateY(-130px);
 }
+
+@media (max-width:777px){
+    .appointment-banner{
+        height: auto;
+    }
+}

@@ -6,7 +6,7 @@ const InfoCard = props => {
     const {title, icon , description , bg } = props.info; 
    
     return (
-        <div className="col-md-4 text-white">
+        <div className="col-md-4 text-white mb-2">
             <div className={`${bg} single-info  py-4  px-5 bg-primary  d-flex align-items-center rounded`}>
                 <FontAwesomeIcon className="icon mr-4" icon={
                         icon === 'clock' ? faClock :
