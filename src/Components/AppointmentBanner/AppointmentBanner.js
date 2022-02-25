@@ -10,10 +10,10 @@ const AppointmentBanner = () => {
                         <img src={bannerImg} alt=""/>
                     </div>
                     <div className="col-md-7 text-white py-5">
-                        <h5 className="text-primary text-uppercase ">Appointment</h5>
-                        <h1 className="my-4">Make an Appointment <br/> Today</h1>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque magnam ad consequuntur assumenda saepe hic amet nemo ea facere a!</p>
-                        <button className="btn btn-primary">Learn More</button>
+                        <h5 className="text-warning text-uppercase ">Appointment</h5>
+                        <h1 className="my-4">Doctor’s appointment online<br/> In Bangladesh</h1>
+                        <p>Bangladeshi First largest and biggest doctor's and medical directory. First ever online platform for doctor appointments in Bangladesh.</p>
+                        <button className="btn btn-info">Learn More</button>
                     </div>
                 </div>
             </div>

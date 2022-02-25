@@ -2,20 +2,20 @@ const infos = [
     {
         icon : 'clock',
         title : "Opening hours",
-        description : 'Lorem ipsum dolor sit amet.',
-        bg: 'bg-primary'
+        description : '24/7 emergency services',
+        bg: 'bg-info'
     },
     {
         icon : 'location',
         title : "Visit our location",
-        description : 'Lorem ipsum dolor sit amet.',
+        description : 'Daffodil Smart City',
         bg: 'bg-dark'
     },
     {
         icon : 'contact',
         title : "Contact us now",
-        description : '+880-1708-474567',
-        bg: 'bg-primary'
+        description : '+880-1761926292',
+        bg: 'bg-warning'
 
     },
     

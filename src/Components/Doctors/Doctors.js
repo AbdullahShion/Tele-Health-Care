@@ -1,14 +1,15 @@
 import React from 'react';
 import Doctor from '../Doctor/Doctor';
+
 const Doctors = () => {
     return (
         <section className="doctors">
             <div className="container">
-                <h5 className="text-center  text-primary mb-5">Our Doctors</h5>
+                <h2 className="text-center  text-warning mb-5">Our Doctors</h2>
                 <div className="row">
                     <Doctor/>
-                    <Doctor/>
-                    <Doctor/>
+                    
+                    
                 </div>
             </div>
         </section>

@@ -19,7 +19,7 @@ const Header = () => {
   return (
       <nav  className={ (isSticky || isCollapsed) ? "slide in show shadow-sm navbar navbar-expand-sm bg-white navbar-light py-3  fixed-top" : "slide out show navbar navbar-expand-sm navbar-light py-4 fixed-top "}>
         <div className="container">
-          <Link className="navbar-brand" to="/">Doctor's <strong>Portal</strong></Link>
+          <Link className="navbar-brand" to="/">TELE <strong>HEALTH</strong></Link>
           <button onClick={
             () => setCollapsed(!isCollapsed ? 'show' : null )} className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
               aria-expanded="false" aria-label="Toggle navigation">
@@ -31,17 +31,18 @@ const Header = () => {
                 <Link className="nav-link" to="/">Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link"  to="/about">About Us</Link>
-              </li>
-              <li className="nav-item">
                 <Link className="nav-link"  to="/doctor">Doctor Dashboard</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link"  to="/blog">Blog</Link>
+                <Link className="nav-link"  to="/Chat">Contact For Live Chat</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link"  to="/contact">Contact Us</Link>
+                <Link className="nav-link"  to="/Blogs">Blog</Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link"  to="/Contact">Contact Us</Link>
+              </li>
+             
             </ul>
            
           </div>

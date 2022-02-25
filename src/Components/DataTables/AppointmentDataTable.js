@@ -46,7 +46,7 @@ const AppointmentDataTable = () => {
 
         // Storing Data to Database
 
-        fetch("https://doctors-portal-backend.herokuapp.com/updateAppointmentTime",{
+        fetch("https://mysterious-crag-65660.herokuapp.com/updateAppointmentTime",{
             method : "POST",
             headers : {
                 "Content-type" : "application/json"
@@ -73,7 +73,7 @@ const AppointmentDataTable = () => {
         ContextData.setAllBookedAppointments(newDataArray);
 
         // Storing Data in database
-        fetch("https://doctors-portal-backend.herokuapp.com/updateBookingStatus",{
+        fetch("https://mysterious-crag-65660.herokuapp.com/updateBookingStatus",{
             method : "POST",
             headers : {
                 "Content-type" : "application/json"

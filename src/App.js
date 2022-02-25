@@ -1,9 +1,12 @@
 import React, {createContext,useState,useEffect} from 'react';
 import './App.css';
+import Chat from './Components/Chat';
+import Blogs from './Components/Blogs/Blogs';
 import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
 import Appointment from './Pages/Appointment';
 import Home from './Pages/Home';
 import NotFound from './Pages/NotFound';
+import Contact from './Components/Contact/Contact';
 import Login from './Pages/Login';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Patients from './Pages/Dashboard/Patients';
@@ -22,7 +25,7 @@ function App() {
   const [preLoaderVisibility, setPreLoaderVisibility] = useState(true);
 
   useEffect(() => {
-    fetch("https://doctors-portal-backend.herokuapp.com/appointments")
+    fetch("https://mysterious-crag-65660.herokuapp.com/appointments")
     .then(res => res.json())
     .then(data => {
       setAllAppointments(data);
@@ -31,7 +34,7 @@ function App() {
   }, [allAppointments.length])
 
   useEffect(() => {
-      fetch("https://doctors-portal-backend.herokuapp.com/bookedAppointments")
+      fetch("https://mysterious-crag-65660.herokuapp.com/bookedAppointments")
       .then(res => res.json())
       .then(data => setAllBookedAppointments(data));
       
@@ -64,13 +67,19 @@ function App() {
     <DataContext.Provider value={contextData}>
     <CalenderContext.Provider value={calenderContextValue}>
     <Router>
-        <Switch>
+          <Switch>
+            
           <Route exact path="/">
             <Home/>
           </Route>
-
           <Route path="/appointment">
             <Appointment/>
+          </Route>
+          <Route path="/blogs">
+            <Blogs/>
+          </Route>
+          <Route path="/Contact">
+            <Contact/>
           </Route>
           <Route exact path="/doctor">
             <Login/>
@@ -87,6 +96,9 @@ function App() {
           <Route  path="/doctor/prescriptions">
             <Prescriptions/>
           </Route>
+          <Route path="/Chat">
+             <Chat/>
+          </Route>
           <Route path="*">
               <NotFound/>
           </Route>
@@ -95,6 +107,7 @@ function App() {
     </Router>
     </CalenderContext.Provider>
     </DataContext.Provider>
+    
   );
 }
 

@@ -1,18 +1,19 @@
 const services = [
     {
-        name : 'Floride Treatment',
-        img : 'https://imgur.com/jASEb0l.png',
-        description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, rerum? Aspernatur, ut ipsam! Provident, quod molestias illum optio cumque  ! '
+        name : 'Request Appointment',
+        img: 'https://icon-library.com/images/request-icon-png/request-icon-png-19.jpg'
+        ,
+        description : 'You can request for a doctor to contact with you also you can live chat with the doctor any time.Doctor provide you to best solution'
     },
     {
-        name : 'Cavity Filling',
-        img : 'https://imgur.com/NJhXMx5.png',
-        description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, rerum? Aspernatur, ut ipsam! Provident, quod molestias illum optio cumque  ! '
+        name : 'Skin disease prediction',
+        img : 'https://cdn0.iconfinder.com/data/icons/medical-hospital-blue-line/64/34_dermatology-skin-diseases-512.png',
+        description : 'In this time skin disease is very much dangers thinks so that in this site you will able to check which skin disease affect you to ensure that then you can contact with our doctors '
     },
     {
-        name : 'Teth Whiting',
-        img : 'https://imgur.com/L3meLFc.png',
-        description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, rerum? Aspernatur, ut ipsam! Provident, quod molestias illum optio cumque  ! '
+        name : 'Live Chat',
+        img : 'https://th.bing.com/th/id/R.33f3e84c499e95b21bc379cb7161e34a?rik=%2fSsUvfGcGbtOWA&pid=ImgRaw&r=0',
+        description : '24/7 you can contact with our specialist with live video call or you can also chat with our consultant they provide you best solution and prescription  '
     },
 ]
 

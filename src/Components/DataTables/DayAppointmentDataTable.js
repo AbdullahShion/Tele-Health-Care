@@ -21,7 +21,7 @@ const DayAppointmentDataTable = () => {
         newDataArray.splice(selectedIndex,1, modifiedData);
         ContextData.setAllBookedAppointments(newDataArray)
         
-        fetch("https://doctors-portal-backend.herokuapp.com/updateVisitingStatus",{
+        fetch("https://mysterious-crag-65660.herokuapp.com/updateVisitingStatus",{
             method : "POST",
             headers : {
                 "Content-type" : "application/json"

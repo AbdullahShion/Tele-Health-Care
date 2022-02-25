@@ -11,21 +11,69 @@ import Preloader from '../Preloader/Preloader';
 Modal.setAppElement('#root')
 
 const AppointmentTable = () => {
+
     const contextData = useContext(CalenderContext);
     const contextData_2 = useContext(DataContext)
     const [selectAppointment, setSelectAppointment] = useState(null);
     const [modalIsOpen,setModalIsOpen] = useState(false);
     const [isBooked, setIsBooked] = useState(false);
-    console.log(contextData_2.preLoaderVisibility)
+ 
 
+            contextData_2.allAppointments  =[
+    {
+        _id: "1ejwij3673289227",
+        id: 1,
+        subject: "Teeth Orthodontics",
+        visitHour:"8.00 AM - 9.00 AM",
+        totalSpace: 10
+    },
+    {
+        _id: "2ejwij3673289sf227",
+        id: 1,
+        subject: "Cosmetic Dentistry ",
+        visitHour:"10.05 AM - 11.30 AM",
+        totalSpace: 10
+    },
+    {
+        _id: "2ejwij3673289227",
+        id: 1,
+        subject: "Teeth Cleaning",
+        visitHour:"5.00 PM - 6.30 PM",
+        totalSpace: 10
+    },
+    {
+        _id: "4ejwij3673289227",
+        id: 1,
+        subject: "Cavity Protection",
+        visitHour:"7.00 AM - 8.30 AM",
+        totalSpace: 10
+    },
+    {
+        _id: "5ejwij3673289227",
+        id: 1,
+        subject: "Teeth Orthodontics",
+        visitHour:"8.00 AM - 9.00 AM",
+        totalSpace: 10
+    },
+    {
+        _id: "6ejwij3673289227",
+        id: 1,
+        subject: "Teeth Orthodontics",
+        visitHour:"8.00 AM - 9.00 AM",
+        totalSpace: 10
+    }
+  
+    ]
+       console.log(contextData_2.allAppointments)
     const date = `${contextData.date.getDate()}-${contextData.date.getMonth() +1}-${contextData.date.getFullYear()}`;
 
     const  makeBooking = (patientInfo) => {
         setIsBooked(true);
         const apId = selectAppointment.id;
         const time = selectAppointment.visitingHour;
-        const dataToStore = {apId , date , time , patientInfo ,status:"Pending" }
-        fetch("https://doctors-portal-backend.herokuapp.com/makeBooking",{
+        const dataToStore = { apId, date, time, patientInfo, status: "Pending" }
+        //  fetch("https://doctors-portal-backend.herokuapp.com/makeBooking"
+        fetch("https://mysterious-crag-65660.herokuapp.com/makeBooking",{
             method : "POST",
             headers : {
                 "Content-type" : "application/json"

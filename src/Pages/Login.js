@@ -6,7 +6,8 @@ const Login = () => {
         <div className="login-page container">
             <div className="row align-items-center" style={{height:"100vh"}}>
                 <div className="col-md-6 shadow p-5">
-                        <div className="form-group">
+                    <div className="form-group">
+                        <h1>Admin Panel</h1>
                             <label htmlFor="">User Name</label>
                             <input type="text" className="form-control"/>
                         </div>
@@ -15,7 +16,8 @@ const Login = () => {
                             <input type="password" className="form-control"/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="" className="text-danger">Forgot your password?</label>
+                        
+                        <a href="">Forgot your password?</a>
                         </div>
                         <div className="from-group mt-5">
                             <Link to="doctor/dashboard" className="btn btn-primary btn-block text-capitalize">Sign In</Link>
