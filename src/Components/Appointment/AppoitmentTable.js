@@ -21,45 +21,31 @@ const AppointmentTable = () => {
 
             contextData_2.allAppointments  =[
     {
-        _id: "1ejwij3673289227",
+        _id: "620bc18b22017ca59607b385",
         id: 1,
-        subject: "Teeth Orthodontics",
-        visitHour:"8.00 AM - 9.00 AM",
+        subject: "Skin Disease",
+        visitingHour:"8.00 AM - 9.00 AM",
         totalSpace: 10
     },
     {
-        _id: "2ejwij3673289sf227",
-        id: 1,
-        subject: "Cosmetic Dentistry ",
-        visitHour:"10.05 AM - 11.30 AM",
+        _id: "5e8df5aee6e8231764dc23e0",
+        id: 2,
+        subject: "Liver Disease",
+        visitingHour:"10.05 AM - 11.30 AM",
         totalSpace: 10
     },
     {
-        _id: "2ejwij3673289227",
-        id: 1,
-        subject: "Teeth Cleaning",
-        visitHour:"5.00 PM - 6.30 PM",
+        _id: "5e8df68de6e8231764dc23e2",
+        id: 3,
+        subject: "Parkinson's Disease",
+        visitingHour:"5.00 PM - 6.30 PM",
         totalSpace: 10
     },
     {
-        _id: "4ejwij3673289227",
-        id: 1,
-        subject: "Cavity Protection",
-        visitHour:"7.00 AM - 8.30 AM",
-        totalSpace: 10
-    },
-    {
-        _id: "5ejwij3673289227",
-        id: 1,
-        subject: "Teeth Orthodontics",
-        visitHour:"8.00 AM - 9.00 AM",
-        totalSpace: 10
-    },
-    {
-        _id: "6ejwij3673289227",
-        id: 1,
-        subject: "Teeth Orthodontics",
-        visitHour:"8.00 AM - 9.00 AM",
+        _id: "5e8df6a0e6e8231764dc23e3",
+        id: 4,
+        subject: "Heart Disease",
+        visitingHour:"8.00 AM - 9.00 AM",
         totalSpace: 10
     }
   
